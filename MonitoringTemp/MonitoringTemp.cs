@@ -85,8 +85,9 @@ namespace MonitoringTemp
                         if (countMinut > maxTime)
                         {
                             countWrongMaxTempMinunt = countMinut;
-                            results += $"Дата: {date} Факт: {tempOnMin} Норма: {maxTemp} Отклонение от нормы: {tempOnMin - maxTemp}\n";
+                            
                         }
+                        results += $"Дата: {date} Факт: {tempOnMin} Норма: {maxTemp} Отклонение от нормы: {tempOnMin - maxTemp}\n";
                     }
 
                     if (tempOnMin < minTemp && !notCheckMin)
@@ -103,10 +104,11 @@ namespace MonitoringTemp
                         if (countMinut > minTime)
                         {
                             countWrongMinTempMinunt = countMinut;
-                            results += $"Дата: {date} Факт: {tempOnMin} Норма: {minTemp} Отклонение от нормы: {tempOnMin - minTemp}\n";
+                            
                         }
+                        results += $"Дата: {date} Факт: {tempOnMin} Норма: {minTemp} Отклонение от нормы: {tempOnMin - minTemp}\n";
                     }
-                    date.AddMinutes(10);
+                    date = date.AddMinutes(10);
                 }
                 if (countWrongMaxTempMinunt > 0)
                 {

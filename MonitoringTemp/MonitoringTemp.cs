@@ -50,7 +50,6 @@ namespace MonitoringTemp
                     {
                         onMax = false;
                         onMin = true;
-                        cou
                     }
                     countWrongMin += 10;
                 }

@@ -41,6 +41,7 @@
             this.tbTempOnTenMin = new System.Windows.Forms.TextBox();
             this.lbTempOnTenMin = new System.Windows.Forms.Label();
             this.btnCheck = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbMaxTemp
@@ -152,11 +153,24 @@
             this.btnCheck.UseVisualStyleBackColor = false;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.Black;
+            this.btnSave.ForeColor = System.Drawing.Color.Transparent;
+            this.btnSave.Location = new System.Drawing.Point(58, 603);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(888, 63);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Получить более подробный отчет в файл";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // MonitoringTemp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 689);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.tbTempOnTenMin);
             this.Controls.Add(this.lbTempOnTenMin);
@@ -193,6 +207,7 @@
         private System.Windows.Forms.TextBox tbTempOnTenMin;
         private System.Windows.Forms.Label lbTempOnTenMin;
         private System.Windows.Forms.Button btnCheck;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

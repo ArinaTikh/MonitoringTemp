@@ -45,7 +45,7 @@ namespace MonitoringTemp
                 maxTime = Convert.ToInt32(tbMaxTime.Text);
 
                 bool notCheckMin = false;
-                if(tbMinTemp.Text == null || tbMinTime.Text == null)
+                if(tbMinTime.Text == "-" || tbMinTemp.Text == "-")
                 {
                     notCheckMin = true;
                 }
@@ -90,23 +90,26 @@ namespace MonitoringTemp
                         results += $"Дата: {date} Факт: {tempOnMin} Норма: {maxTemp} Отклонение от нормы: {tempOnMin - maxTemp}\n";
                     }
 
-                    if (tempOnMin < minTemp && !notCheckMin)
+                    if (!notCheckMin)
                     {
-                        if (onMax)
+                        if (tempOnMin < minTemp)
                         {
-                            onMax = false;
-                            countMinut = 0;
-                        }
+                            if (onMax)
+                            {
+                                onMax = false;
+                                countMinut = 0;
+                            }
 
-                        onMin = true;
-                        countMinut += 10;
+                            onMin = true;
+                            countMinut += 10;
 
-                        if (countMinut > minTime)
-                        {
-                            countWrongMinTempMinunt = countMinut;
-                            
+                            if (countMinut > minTime)
+                            {
+                                countWrongMinTempMinunt = countMinut;
+
+                            }
+                            results += $"Дата: {date} Факт: {tempOnMin} Норма: {minTemp} Отклонение от нормы: {tempOnMin - minTemp}\n";
                         }
-                        results += $"Дата: {date} Факт: {tempOnMin} Норма: {minTemp} Отклонение от нормы: {tempOnMin - minTemp}\n";
                     }
                     date = date.AddMinutes(10);
                 }
@@ -120,7 +123,7 @@ namespace MonitoringTemp
                 }
                 allWorkCorrect = true;
             }
-            catch (ArgumentNullException)
+            catch 
             {
                 MessageBox.Show("Заполните все необходимые поля");
             }
